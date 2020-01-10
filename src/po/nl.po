@@ -1,0 +1,110 @@
+# Dutch messages for GNU nss_db.
+# Copyright (C) 2000 Free Software Foundation, Inc.
+# Mark Kettenis <kettenis@gnu.org>, 2000.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: nss_db 2.1.93\n"
+"POT-Creation-Date: 2000-09-10 16:37+0200\n"
+"PO-Revision-Date: 2000-09-10 17:32+02:00\n"
+"Last-Translator: Mark Kettenis <kettenis@gnu.org>\n"
+"Language-Team: Dutch <nl@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Transfer-Encoding: 8-bit\n"
+
+#: src/makedb.c:68
+msgid "Convert key to lower case"
+msgstr "Converteer sleutel naar kleine letters"
+
+#: src/makedb.c:69
+msgid "NAME"
+msgstr "NAAM"
+
+#: src/makedb.c:69
+msgid "Write output to file NAME"
+msgstr "Schrijf uitvoer naar bestand NAAM"
+
+#: src/makedb.c:71
+msgid "Do not print messages while building database"
+msgstr "Toon geen meldingen bij aanmaken databank"
+
+#: src/makedb.c:73
+msgid "Print content of database file, one entry a line"
+msgstr "Toon inhoud van databankbestand, een item per regel"
+
+#. Short description of program.
+#: src/makedb.c:78
+msgid "Create simple DB database from textual input."
+msgstr "Maak eenvoudige DB databank van tekstinvoer."
+
+#. Strings for arguments in help texts.
+#: src/makedb.c:81
+msgid ""
+"INPUT-FILE OUTPUT-FILE\n"
+"-o OUTPUT-FILE INPUT-FILE\n"
+"-u INPUT-FILE"
+msgstr ""
+"INVOER-BESTAND UITVOER-BESTAND\n"
+"-o UITVOER-BESTAND INVOER-BESTAND\n"
+"-u INVOER-BESTAND"
+
+#: src/makedb.c:132
+msgid "wrong number of arguments"
+msgstr "onjuist aantal argumenten"
+
+#: src/makedb.c:154
+#, c-format
+msgid "cannot open database file `%s': %s"
+msgstr "kan databank bestand `%s' niet openen: %s"
+
+#: src/makedb.c:173
+#, c-format
+msgid "cannot open input file `%s'"
+msgstr "kan invoerbestand `%s' niet openen"
+
+#: src/makedb.c:187
+#, c-format
+msgid "cannot open output file `%s': %s"
+msgstr "kan uitvoerbestand `%s' niet openen: %s"
+
+#. We print some extra information.
+#: src/makedb.c:235
+msgid "Report bugs using the `glibcbug' script to <bugs@gnu.org>.\n"
+msgstr "Meld fouten met het `glibcbug' script aan <bugs@gnu.org>.\n"
+
+#: src/makedb.c:248
+#, c-format
+msgid ""
+"Copyright (C) %s Free Software Foundation, Inc.\n"
+"This is free software; see the source for copying conditions.  There is NO\n"
+"warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n"
+msgstr ""
+"Copyright (C) %s Free Software Foundation, Inc.\n"
+"Dit is vrije programmatuur; zie de broncode voor kopieervoorwaarden.\n"
+"Er is GEEN garantie; zelf niet voor VERKOOPBAARHEID of GESCHIKTHEID\n"
+"VOOR EEN BEPAALD DOEL.\n"
+
+#: src/makedb.c:253
+#, c-format
+msgid "Written by %s.\n"
+msgstr "Geschreven door %s.\n"
+
+#: src/makedb.c:330
+msgid "duplicate key"
+msgstr "dubbele sleutel"
+
+#: src/makedb.c:336
+#, c-format
+msgid "while writing database file: %s"
+msgstr "bij schrijven databankbestand: %s"
+
+#: src/makedb.c:348
+#, c-format
+msgid "problems while reading `%s'"
+msgstr "problemen bij het lezen van `%s'"
+
+#: src/makedb.c:371 src/makedb.c:389
+#, c-format
+msgid "while reading database: %s"
+msgstr "bij het lezen van databank: %s"
