@@ -4,7 +4,7 @@
 Summary: An NSS library for the Berkeley DB
 Name: nss_db
 Version: 2.2.3
-Release: 0.4.pre1%{?dist}.1
+Release: 0.5.pre1%{?dist}.1
 Source: ftp://sources.redhat.com/pub/glibc/old-releases/nss_db-%{version}pre1.tar.gz
 Source1: http://download.oracle.com/berkeley-db/db-%{db_version}.tar.gz
 Source2: db-getent-Makefile
@@ -24,6 +24,7 @@ Patch11: nss_db-2.2-makedb-atomic.patch
 Patch12: 200-set-db-environment.patch
 Patch13: d-nss_db-initgr.patch
 Patch14: repeat.patch
+Patch18: nss_db-2.2-filecopy-leak.patch
 Patch100: db-4.6.18-glibc.patch
 Patch101: http://www.oracle.com/technology/products/berkeley-db/db/update/4.6.21/patch.4.6.21.1
 Patch102: http://www.oracle.com/technology/products/berkeley-db/db/update/4.6.21/patch.4.6.21.2
@@ -70,6 +71,7 @@ popd
 %patch12 -p1 -b .set-db-environment
 %patch13 -p1 -b .initgr
 %patch14 -p1 -b .repeat
+%patch18 -p1 -b .filecopy-leak
 cp %{_datadir}/gettext/config.rpath .
 rm -f config.guess config.sub ltmain.sh
 autoreconf -i
@@ -141,10 +143,16 @@ rm -rf ${RPM_BUILD_ROOT}
 %config(noreplace) /var/db/Makefile
 
 %changelog
-* Fri Feb 17 2012 Nalin Dahyabhai <nalin@redhat.com> - 2.2.3-0.4.pre1.1
+* Mon Apr 21 2014 Nalin Dahyabhai <nalin@redhat.com> - 2.2.3-0.5.pre1.1
+- bump and rebuild (#1088776)
+
+* Mon Mar 17 2014 Carlos Santos <csantos@redhat.com>
+- Fix BZ#1076574: Memory leak in nss_db in db-open.c internal_setent()
+
+* Mon Feb  6 2012 Nalin Dahyabhai <nalin@redhat.com> - 2.2.3-0.5.pre1
 - when the initgroups function needs to parse a group entry which contains a
   large list of users, reinitialize the buffer that we pass to the parsing
-  function, which destroyed what we passed to it the previous time (#788668)
+  function, which destroyed what we passed to it the previous time (#751461)
 
 * Wed May 18 2011 Nalin Dahyabhai <nalin@redhat.com> - 2.2.3-0.4.pre1
 - import patch to handle initgroups directly rather than forcing libc to
