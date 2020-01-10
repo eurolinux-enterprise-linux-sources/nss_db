@@ -4,7 +4,7 @@
 Summary: An NSS library for the Berkeley DB
 Name: nss_db
 Version: 2.2.3
-Release: 0.3.pre1%{?dist}.1
+Release: 0.4.pre1%{?dist}.1
 Source: ftp://sources.redhat.com/pub/glibc/old-releases/nss_db-%{version}pre1.tar.gz
 Source1: http://download.oracle.com/berkeley-db/db-%{db_version}.tar.gz
 Source2: db-getent-Makefile
@@ -23,6 +23,7 @@ Patch10: nss_db-2.2-glibc.patch
 Patch11: nss_db-2.2-makedb-atomic.patch
 Patch12: 200-set-db-environment.patch
 Patch13: d-nss_db-initgr.patch
+Patch14: repeat.patch
 Patch100: db-4.6.18-glibc.patch
 Patch101: http://www.oracle.com/technology/products/berkeley-db/db/update/4.6.21/patch.4.6.21.1
 Patch102: http://www.oracle.com/technology/products/berkeley-db/db/update/4.6.21/patch.4.6.21.2
@@ -68,6 +69,7 @@ pushd src
 popd
 %patch12 -p1 -b .set-db-environment
 %patch13 -p1 -b .initgr
+%patch14 -p1 -b .repeat
 cp %{_datadir}/gettext/config.rpath .
 rm -f config.guess config.sub ltmain.sh
 autoreconf -i
@@ -139,11 +141,16 @@ rm -rf ${RPM_BUILD_ROOT}
 %config(noreplace) /var/db/Makefile
 
 %changelog
-* Wed Jul  6 2011 Nalin Dahyabhai <nalin@redhat.com> - 2.2.3-0.3.pre1.1
+* Fri Feb 17 2012 Nalin Dahyabhai <nalin@redhat.com> - 2.2.3-0.4.pre1.1
+- when the initgroups function needs to parse a group entry which contains a
+  large list of users, reinitialize the buffer that we pass to the parsing
+  function, which destroyed what we passed to it the previous time (#788668)
+
+* Wed May 18 2011 Nalin Dahyabhai <nalin@redhat.com> - 2.2.3-0.4.pre1
 - import patch to handle initgroups directly rather than forcing libc to
   use the enumeration interfaces, which could result in two threads calling
   initgroups() at the same time to both get a subset of the right answers
-  (#718203)
+  (#705466)
 
 * Wed Apr  7 2010 Nalin Dahyabhai <nalin@redhat.com> - 2.2.3-0.3.pre1
 - import Kees Cook's patch to fix accidental leakage of part of ./DB_CONFIG
